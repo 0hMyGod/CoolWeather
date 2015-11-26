@@ -30,7 +30,7 @@ public class CoolWeatherDB {
 	private CoolWeatherDB(Context context)
 	{
 		CoolWeatherOpenHelper dbHelper=new CoolWeatherOpenHelper(context, DB_NAME, null, VERSION);
-		
+		db = dbHelper.getWritableDatabase();
 	}
 	/**
 	 * 获取CoolWeatherDB的实例,这里保证了全局只有一个CoolWeatherDB实例
