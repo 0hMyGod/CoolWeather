@@ -7,7 +7,6 @@ import com.coolweather.app.model.City;
 import com.coolweather.app.model.County;
 import com.coolweather.app.model.Province;
 
-import android.R.color;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -34,8 +33,6 @@ public class CoolWeatherDB {
 	}
 	/**
 	 * 获取CoolWeatherDB的实例,这里保证了全局只有一个CoolWeatherDB实例
-	 * @param context
-	 * @return
 	 */
 	public synchronized static CoolWeatherDB getInstance(Context context)
 	{

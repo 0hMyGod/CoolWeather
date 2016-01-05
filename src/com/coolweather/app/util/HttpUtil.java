@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import android.R.string;
+
 public class HttpUtil{
 	public static void sendHttpRequest(final String address,final HttpCallbackListener listener)
 	{
@@ -15,6 +17,7 @@ public class HttpUtil{
 			public void run() {
 				HttpURLConnection connection=null;
 				try {
+					//把传来的地址转换为url格式
 					URL url=new URL(address);
 					//打开连接
 					connection=(HttpURLConnection) url.openConnection();
@@ -24,7 +27,7 @@ public class HttpUtil{
 					connection.setReadTimeout(8000);
 					//获取输入流
 					InputStream in=connection.getInputStream();
-			
+					
 					BufferedReader reader=new BufferedReader(new InputStreamReader(in));
 					StringBuilder response=new StringBuilder();
 					String line;
@@ -33,6 +36,7 @@ public class HttpUtil{
 					{
 						response.append(line);
 					}
+
 					if (listener!=null) {
 						//回调onFinish方法
 						listener.onFinish(response.toString());
